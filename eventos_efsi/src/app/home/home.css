@@ -1,0 +1,73 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+  
+  .userInfo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .userName {
+    margin-right: 10px;
+  }
+  
+  .logoutButton {
+    background-color: #f00;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  
+  .main {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .eventList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .eventCard {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    width: 200px;
+  }
+  
+  .eventCard a {
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  .footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+  }  
