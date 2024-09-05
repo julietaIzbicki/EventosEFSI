@@ -14,21 +14,21 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <header className="header">
-          <div className="logo">MySite</div>
+          <div className="logo">M&J Site</div>
           <nav>
-            <Link href="/home">Home</Link>
-            <Link href="/contact">Contact</Link>
-            {/* Condición para mostrar el espacio de usuario si está autenticado */}
+            <Link href="./home">Home</Link>
+            <Link href="./contacto">Contacto</Link>
             <div className="userInfo">
               {/* Estos valores deben ser dinámicos según el estado de autenticación */}
-              <span className="userName">User</span>
+              <Link href="/contacto">User</Link>
+              <Link href="./logIn">Log in</Link>
               <Link href="#" className="logoutButton">Logout</Link>
             </div>
           </nav>
         </header>
         <main>{children}</main>
         <footer className="footer">
-          <p>&copy; 2024 MySite</p>
+          <p>&copy;  Maiu y Juli</p>
         </footer>
       </body>
     </html>
