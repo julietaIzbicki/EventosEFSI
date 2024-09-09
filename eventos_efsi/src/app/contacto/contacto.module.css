@@ -1,0 +1,41 @@
+/* contacto.module.css */
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f4f6f9;
+  padding: 20px;
+}
+
+.main {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.mainTitle {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.mainParagraph {
+  font-size: 1.125rem;
+  color: #34495e;
+  margin: 10px 0;
+}
+
+.mainLink {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.mainLink:hover {
+  text-decoration: underline;
+}

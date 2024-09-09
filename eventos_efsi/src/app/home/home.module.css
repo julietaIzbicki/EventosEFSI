@@ -1,0 +1,47 @@
+/* home.module.css */
+
+.eventsContainer {
+  padding: 20px;
+  background: #f4f6f9;
+  min-height: 100vh;
+}
+
+.eventsTitle {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.eventsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.eventItem {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.eventItem:hover {
+  background: #f0f4f8;
+  transform: translateY(-2px);
+}
+
+.eventTitle {
+  font-size: 1.5rem;
+  color: #3498db;
+  margin: 0;
+}
+
+.eventDate, .eventLocation {
+  font-size: 1rem;
+  color: #7f8c8d;
+  margin: 5px 0;
+}

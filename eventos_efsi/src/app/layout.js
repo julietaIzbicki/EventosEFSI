@@ -1,6 +1,5 @@
 import { Inter } from 'next/font/google';
 import './globals.css'; 
-import Link from 'next/link';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -13,18 +12,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <header className="header">
-          <div className="logo">M&J Site</div>
-          <nav>
-            <Link href="./home">Home</Link>
-            <Link href="./contacto">Contacto</Link>
-            <div className="userInfo">
-              {/* Estos valores deben ser dinámicos según el estado de autenticación */}
-              <Link href="/contacto">User</Link>
-              <Link href="./logIn">Log in</Link>
-              <Link href="#" className="logoutButton">Logout</Link>
-            </div>
-          </nav>
+        <header className="header">          
         </header>
         <main>{children}</main>
         <footer className="footer">

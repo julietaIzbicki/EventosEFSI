@@ -2,49 +2,58 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background: linear-gradient(135deg, #f3f4f6, #d9e2ec);
-  padding: 20px;
+  min-height: 100vh;
+  background: #f4f6f9;
 }
 
-.content {
-  text-align: center;
+.formContainer {
   background: #ffffff;
   padding: 40px;
-  border-radius: 10px;
+  border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
 }
 
-.mainTitle {
-  font-size: 3rem;
+.title {
+  font-size: 2rem;
   color: #2c3e50;
   margin-bottom: 20px;
-  font-family: 'Arial', sans-serif;
 }
 
-.buttonGroup {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+.inputField {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 1rem;
+  width: 100%;
+  margin-bottom: 15px;
 }
 
-.button {
+.submitButton {
   background: #3498db;
   color: #ffffff;
   border: none;
-  padding: 15px 30px;
+  padding: 15px;
   font-size: 1rem;
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s ease, transform 0.2s ease;
+  width: 100%;
 }
 
-.button:hover {
+.submitButton a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.submitButton:hover {
   background: #2980b9;
   transform: translateY(-2px);
 }
 
-.button:focus {
+.submitButton:focus {
   outline: 2px solid #2980b9;
   outline-offset: 2px;
 }

@@ -1,18 +1,38 @@
-import styles from './home.css';
+"use client";
 
-export default function Home() {
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation'; 
+import styles from './home.module.css';
+import Navbar from '../components/navbar';
+
+export default function Events() {
+  const [events, setEvents] = useState([]);
+  const router = useRouter();
+
+  useEffect(() => {
+    setEvents([
+      { id: 1, title: "Festival de Música Electrónica", date: "2024-10-01", location: "Madrid" }
+    ]);
+  }, []);
+
+  const handleEventClick = (id) => {
+    router.push('/detalleEvento');
+  };
+
   return (
-    <div className={styles.container}>
-
-      <main className={styles.main}>
-        <h1>Eventos</h1>
-        <div className={styles.eventList}>
-          <div className={styles.eventCard}>
-            <h2>Evento</h2>
-            <a href="/event-detail">Detalle evento</a>
-          </div>
-        </div>
+    <Navbar>
+      <main className={styles.eventsContainer}>
+        <h1 className={styles.eventsTitle}>Eventos</h1>
+        <ul className={styles.eventsList}>
+          {events.map(event => (
+            <li key={event.id} className={styles.eventItem} onClick={() => handleEventClick(event.id)}>
+              <h3 className={styles.eventTitle}>{event.title}</h3>
+              <p className={styles.eventDate}>Fecha: {event.date}</p>
+              <p className={styles.eventLocation}>Ubicación: {event.location}</p>
+            </li>
+          ))}
+        </ul>
       </main>
-    </div>
+    </Navbar>
   );
 }
