@@ -12,7 +12,7 @@ const Navbar = ({ children }) => {
             <h1 className={styles.title}> M&J Events</h1>
           </div>
           <nav className={styles.nav}>
-            <ul className={styles.navList}>
+            <ul className={styles.navList}> 
                <li className={styles.navItem}><Link href="/">Home</Link></li>
               <li className={styles.navItem}><Link href="/contacto">Contacto</Link></li>
             </ul>
@@ -22,10 +22,6 @@ const Navbar = ({ children }) => {
             <button className={styles.logoutButton}>Cerrar Sesión</button>
           </div>
         </header>
-        
-        <main className={styles.mainContent}>
-          {children}
-        </main>
       </div>
     );
   };

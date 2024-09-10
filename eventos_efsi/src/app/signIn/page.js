@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar/navbar';
 import { useRouter } from 'next/navigation';
 import Button from '../components/Button/button'
 import Input from '../components/Input/input'
+import InputPass from '../components/Input/inputPass';
 
 
 
@@ -17,20 +18,19 @@ export default function SignIn() {
 
   return (
     <div>
-      <Navbar>
+      <Navbar/>
         <div className={styles.container}>
           <div className={styles.formContainer}>
             <h1 className={styles.title}>Regístrate</h1>
             <form onSubmit={handleSubmit}>
               <Input>Username</Input>
               <Input>Email</Input>
-              <Input>Password</Input>
+              <InputPass>Password</InputPass>
               
               <Button>Registrarme</Button>
             </form>
           </div>
         </div>
-      </Navbar>
     </div>
   );
 }

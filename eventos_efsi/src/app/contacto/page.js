@@ -2,8 +2,8 @@ import styles from './contacto.module.css';
 import Navbar from '../components/Navbar/navbar';
 
 export default function Contact() {
-  return (
-    <Navbar>
+  return (<>
+    <Navbar/>
       <div className={styles.container}>
         <main className={styles.main}>
           <h1 className={styles.mainTitle}>¡Contáctanos!</h1>
@@ -12,6 +12,7 @@ export default function Contact() {
           <p className={styles.mainParagraph}>Dirección: <a className={styles.mainLink} href="tel:+1111">Big Pizza de maiu</a></p>
         </main>
       </div>
-    </Navbar>
+  </>
+
   );
 }

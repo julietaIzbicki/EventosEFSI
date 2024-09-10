@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar/navbar'
 import { useRouter } from 'next/navigation';
 import Button from '../components/Button/button'
 import Input from '../components/Input/input'
+import InputPass from '../components/Input/inputPass'
 
 export default function Login() {
   const router = useRouter();
@@ -16,19 +17,18 @@ export default function Login() {
 
   return (
     <div>
-      <Navbar>
+      <Navbar/>
         <div className={styles.container}>
           <div className={styles.formContainer}>
             <h1 className={styles.title}>Inicia Sesión</h1>
             <form onSubmit={handleSubmit}>
               <Input>Username</Input>
-              <Input>Password</Input>
+              <InputPass>Password</InputPass>
 
               <Button>Ingresar</Button>
             </form>
           </div>
         </div>
-      </Navbar>
     </div>
   );
 }
