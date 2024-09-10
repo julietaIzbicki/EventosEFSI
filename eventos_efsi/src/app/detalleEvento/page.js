@@ -1,7 +1,8 @@
 "use client";
 
 import styles from './detalle.module.css'; 
-import Navbar from '../components/navbar';
+import Navbar from '../components/Navbar/navbar';
+import Button from '../components/Button/button';
 
 export default function EventDetail() {
   return (
@@ -11,7 +12,7 @@ export default function EventDetail() {
           <main className={styles.main}>
             <h1 className={styles.title}>Evento Title</h1>
             <p className={styles.details}>Event Details</p>
-            <button className={styles.registerButton}>Register</button>
+            <Button>Register</Button>
           </main>
         </div>
       </Navbar>

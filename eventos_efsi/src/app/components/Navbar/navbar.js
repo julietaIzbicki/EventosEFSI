@@ -1,7 +1,7 @@
 "use cliente";
 import Link from 'next/link';
 import styles from './nav.module.css'; 
-import logo from "../../img/logo.jpg"
+import logo from "../../../img/logo.jpg"
 
 const Navbar = ({ children }) => {
     return (

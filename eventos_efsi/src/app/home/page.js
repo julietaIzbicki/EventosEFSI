@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation'; 
 import styles from './home.module.css';
-import Navbar from '../components/navbar';
+import Navbar from '../components/Navbar/navbar';
 
 export default function Events() {
   const [events, setEvents] = useState([]);

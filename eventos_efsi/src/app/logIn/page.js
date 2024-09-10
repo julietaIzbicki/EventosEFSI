@@ -1,16 +1,17 @@
 "use client";
 
 import styles from './logIn.module.css';
-import Navbar from '../components/navbar'; // Verifica que la ruta sea correcta
+import Navbar from '../components/Navbar/navbar'
 import { useRouter } from 'next/navigation';
+import Button from '../components/Button/button'
+import Input from '../components/Input/input'
 
 export default function Login() {
   const router = useRouter();
 
   const handleSubmit = (event) => {
-    event.preventDefault(); // Previene el comportamiento predeterminado del formulario
-    // Aquí puedes agregar lógica para verificar las credenciales si es necesario
-    router.push('/home'); // Redirige al usuario a la página de inicio
+    event.preventDefault(); 
+    router.push('/home');
   };
 
   return (
@@ -20,21 +21,10 @@ export default function Login() {
           <div className={styles.formContainer}>
             <h1 className={styles.title}>Inicia Sesión</h1>
             <form onSubmit={handleSubmit}>
-              <input
-                type="text"
-                placeholder="Username"
-                className={styles.inputField}
-                required
-              />
-              <input
-                type="password"
-                placeholder="Password"
-                className={styles.inputField}
-                required
-              />
-              <button type="submit" className={styles.submitButton}>
-                Ingresar
-              </button>
+              <Input>Username</Input>
+              <Input>Password</Input>
+
+              <Button>Ingresar</Button>
             </form>
           </div>
         </div>

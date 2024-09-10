@@ -1,0 +1,26 @@
+.submitButton {
+    background: #3498db;
+    color: #ffffff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    width: 100%;
+}
+  
+.submitButton a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.submitButton:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+}
+
+.submitButton:focus {
+    outline: 2px solid #2980b9;
+    outline-offset: 2px;
+}

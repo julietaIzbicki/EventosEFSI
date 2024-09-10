@@ -1,7 +1,11 @@
 "use client";
 import styles from './signIn.module.css';
-import Navbar from '../components/navbar'; 
+import Navbar from '../components/Navbar/navbar'; 
 import { useRouter } from 'next/navigation';
+import Button from '../components/Button/button'
+import Input from '../components/Input/input'
+
+
 
 export default function SignIn() {
   const router = useRouter();
@@ -18,27 +22,11 @@ export default function SignIn() {
           <div className={styles.formContainer}>
             <h1 className={styles.title}>Regístrate</h1>
             <form onSubmit={handleSubmit}>
-              <input
-                type="text"
-                placeholder="Username"
-                className={styles.inputField}
-                required
-              />
-              <input
-                type="email"
-                placeholder="Email"
-                className={styles.inputField}
-                required
-              />
-              <input
-                type="password"
-                placeholder="Password"
-                className={styles.inputField}
-                required
-              />
-              <button type="submit" className={styles.submitButton}>
-                Registrarme
-              </button>
+              <Input>Username</Input>
+              <Input>Email</Input>
+              <Input>Password</Input>
+              
+              <Button>Registrarme</Button>
             </form>
           </div>
         </div>

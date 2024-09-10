@@ -1,5 +1,5 @@
 import styles from './contacto.module.css';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/Navbar/navbar';
 
 export default function Contact() {
   return (
