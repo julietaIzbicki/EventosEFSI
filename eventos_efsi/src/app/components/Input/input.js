@@ -1,13 +1,14 @@
-"use cliente"
+"use client";
 
 import styles from './input.module.css'; 
 
-
-const Input = ({children}) => {
-    return(
+const Input = ({ value, onChange, placeholder }) => {
+    return (
         <input
             type="text"
-            placeholder={children}
+            value={value}
+            onChange={onChange}
+            placeholder={placeholder}
             className={styles.inputField}
             required
         />

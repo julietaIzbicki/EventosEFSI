@@ -6,8 +6,6 @@ import Button from '../components/Button/button'
 import Input from '../components/Input/input'
 import InputPass from '../components/Input/inputPass';
 
-
-
 export default function SignIn() {
   const router = useRouter();
 
