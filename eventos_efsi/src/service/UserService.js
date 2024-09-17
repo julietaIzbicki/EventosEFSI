@@ -26,7 +26,7 @@ export const register = async (nombre, apellido, username, password) => {
       first_name: nombre,
       last_name: apellido,
       username: username,
-      contrasena: password,
+      password: password,
     });
     return response.data;
   } catch (error) {

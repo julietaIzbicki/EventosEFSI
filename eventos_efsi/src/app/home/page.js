@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation'; 
+import { event } from '@/src/service/EventService';
 import styles from './home.module.css';
 import Navbar from '../components/Navbar/navbar';
 import Content from '../components/Content/content'; 
@@ -11,11 +12,12 @@ export default function Events() {
   const router = useRouter();
 
   useEffect(() => {
-    setEvents([
-      { id: 1, title: "Festival de Música Electrónica", date: "2024-10-01", location: "Madrid" },
-      { id: 2, title: "Festival punk", date: "2024-11-01", location: "Londres" }
-
-    ]);
+    const fetchEvents = async () => {
+      const eventsResponse = await event();
+      console.log('eventsResponse:', eventsResponse); // Agrega este console.log
+      setEvents(eventsResponse);
+    };
+    fetchEvents();
   }, []);
 
   const handleEventClick = (id) => {
@@ -25,21 +27,21 @@ export default function Events() {
   return (
     <>
       <Navbar />
-      <main className={styles.eventsContainer}>
-        <h1 className={styles.eventsTitle}>Eventos</h1>
-        <ul className={styles.eventsList}>
-          {events.map(event => (
-            <li key={event.id} className={styles.eventItem}>
-              <Content
-                title={event.title}
-                date={event.date}
-                location={event.location}
-                onClick={() => handleEventClick(event.id)}
-              />
-            </li>
-          ))}
-        </ul>
-      </main>
-    </>
+    <main className={styles.eventsContainer}>
+      <h1 className={styles.eventsTitle}>Eventos</h1>
+      <ul className={styles.eventsList}>
+        {Array.isArray(events) && events.map(event => (
+          <li key={event.id} className={styles.eventItem}>
+            <Content
+              title={event.name}
+              date={event.start_date}
+              location={event.category_name}
+              onClick={() => handleEventClick(event.id)}
+            />
+          </li>
+        ))}
+      </ul>
+    </main>
+  </>
   );
 }

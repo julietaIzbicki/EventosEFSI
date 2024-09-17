@@ -21,11 +21,14 @@ const Login = () => {
       console.log(password);
       const result = await login(email, password);
       if (result.success) {
-        const token = response.data.token; 
+        const token = result.token; 
         localStorage.setItem('token', token);
 
-        //// const token = localStorage.getItem('token'); ---->  cuando necesites acceder al token, puedes utilizar el método
-
+        /* ----> cuando necesites acceder al token, puedes utilizar el método
+        const token = localStorage.getItem('token'); 
+        if (token) {
+          api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+        } */
         router.push('/home');
       } else {
         setError("Usuario o contraseña incorrecta, vuelve a ingresar los datos.");
