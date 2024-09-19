@@ -1,5 +1,6 @@
 import { Inter } from 'next/font/google';
-import './globals.css'; 
+import './globals.css';
+import { UserProvider } from './context/UserContext'; // Ajusta la ruta si es necesario
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -13,8 +14,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <header className="header">          
+          {/* Aquí puedes agregar tu Navbar si es necesario */}
         </header>
-        <main>{children}</main>
+        <UserProvider>
+          <main>{children}</main>
+        </UserProvider>
         <footer className="footer">
           <p>&copy;  Maiu y Juli</p>
         </footer>
