@@ -29,7 +29,8 @@ export const event = async () => {
 export const eventDetails = async (id) => {
   try {
     const response = await userApi.get(`/${id}`);
-    return response.data;
+    console.log(response.data.response[0])
+    return response.data.response[0];
   } catch (error) {
     console.error('Error fetching event details:', error);
     throw error;

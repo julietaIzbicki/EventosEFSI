@@ -25,20 +25,20 @@ export default function SignIn() {
       if (response.success) {
         const token = response.token;
         localStorage.setItem('token', token);
-        updateUser({ name: username, email: username, password }); // Cambiado email por username
+        updateUser({ name: nombre, last_name: apellido, email: username, password });
         router.push('/home');
       } else {
         setError("Error al registrar usuario. Inténtalo de nuevo más tarde.");
       }
     } catch (error) {
-      setError("Error al registrar usuario. Inténtalo de nuevo más tarde.");
-      console.log(error); // Log para el error
+      setError(error.message || "Error al registrar usuario. Inténtalo de nuevo más tarde.");
+      console.log(error); 
     }
   };
 
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       <div className={styles.container}>
         <div className={styles.formContainer}>
           <h1 className={styles.title}>Regístrate</h1>

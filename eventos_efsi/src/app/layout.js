@@ -18,10 +18,10 @@ export default function RootLayout({ children }) {
         </header>
         <UserProvider>
           <main>{children}</main>
+          <footer className="footer">
+            <p>&copy;  Maiu y Juli</p>
+          </footer>
         </UserProvider>
-        <footer className="footer">
-          <p>&copy;  Maiu y Juli</p>
-        </footer>
       </body>
     </html>
   );

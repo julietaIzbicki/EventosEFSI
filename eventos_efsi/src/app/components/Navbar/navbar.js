@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use cliente";
 import Link from 'next/link';
 import styles from './nav.module.css'; 
@@ -13,13 +14,15 @@ const Navbar = ({ children }) => {
           </div>
           <nav className={styles.nav}>
             <ul className={styles.navList}> 
-               <li className={styles.navItem}><Link href="/">Home</Link></li>
+              <li className={styles.navItem}><Link href="/">Home</Link></li>
               <li className={styles.navItem}><Link href="/contacto">Contacto</Link></li>
             </ul>
           </nav>
           <div className={styles.userInfo}>
-            <span>Usuario</span> 
-            <button className={styles.logoutButton}>Cerrar Sesión</button>
+          <ul className={styles.navList}> 
+            <li className={styles.navItem}><Link href="/contacto">Usuario</Link></li>
+          </ul>
+          <button className={styles.logoutButton}>Cerrar Sesión</button>
           </div>
         </header>
       </div>

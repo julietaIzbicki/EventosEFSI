@@ -42,15 +42,15 @@ export default function Events() {
             events.map(event => (
               <li key={event.id} className={styles.eventItem}>
                 <Content
-                  title={event.name}        // Asegúrate de que "name" es una propiedad válida
-                  date={event.start_date}   // Asegúrate de que "start_date" es una propiedad válida
-                  location={event.category_name} // Asegúrate de que "category_name" es una propiedad válida
+                  title={event.name}        
+                  date={event.start_date}   
+                  location={event.category_name} 
                   onClick={() => handleEventClick(event.id)}
                 />
               </li>
             ))
           ) : (
-            <p>No hay eventos disponibles.</p> // Mensaje si no hay eventos
+            <p>No hay eventos disponibles.</p> 
           )}
         </ul>
       </main>

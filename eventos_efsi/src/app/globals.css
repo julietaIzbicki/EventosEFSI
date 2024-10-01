@@ -1,23 +1,20 @@
-/* Estilos para la barra de navegación */
 nav {
   display: flex;
   align-items: center;
-  gap: 20px; /* Espaciado entre los elementos */
-  background: rgba(var(--foreground-rgb), 0.1); /* Fondo semi-transparente */
+  gap: 20px; 
+  background-color: #333;
   padding: 10px 20px;
   border-radius: var(--border-radius);
-  box-shadow: 0 2px 4px rgba(var(--foreground-rgb), 0.2); /* Sombra para profundidad */
-  transition: background 0.3s, box-shadow 0.3s; /* Transiciones suaves */
+  box-shadow: 0 2px 4px rgba(var(--foreground-rgb), 0.2); 
 }
 
 nav:hover {
-  background: rgba(var(--foreground-rgb), 0.2); /* Fondo más oscuro al pasar el ratón */
-  box-shadow: 0 4px 8px rgba(var(--foreground-rgb), 0.3); /* Sombra más pronunciada al pasar el ratón */
+  background: rgba(var(--foreground-rgb), 0.2); 
+  box-shadow: 0 4px 8px rgba(var(--foreground-rgb), 0.3); 
 }
 
-/* Enlaces de navegación */
 nav a {
-  color: rgb(var(--foreground-rgb));
+  color: #fff;
   text-decoration: none;
   font-size: 16px;
   padding: 8px 12px;
@@ -26,27 +23,24 @@ nav a {
 }
 
 nav a:hover {
-  color: #16abff; /* Color azul para el hover */
-  background-color: rgba(22, 171, 255, 0.1); /* Fondo azul claro para el hover */
+  color: #16abff; 
+  background-color: rgba(22, 171, 255, 0.1); 
   border-radius: var(--border-radius);
 }
 
-/* Información del usuario */
 .userInfo {
   display: flex;
   align-items: center;
-  gap: 10px; /* Espaciado entre el nombre de usuario y el botón de cierre de sesión */
+  gap: 10px; 
 }
 
-/* Nombre de usuario */
 .userName {
   color: rgb(var(--foreground-rgb));
   font-size: 16px;
 }
 
-/* Botón de cierre de sesión */
 .logoutButton {
-  background-color: #ff4d4d; /* Color rojo claro */
+  background-color: #ff4d4d; 
   color: rgb(var(--foreground-rgb));
   padding: 6px 12px;
   border: none;
@@ -57,10 +51,24 @@ nav a:hover {
 }
 
 .logoutButton:hover {
-  background-color: #ff1a1a; /* Rojo más oscuro al pasar el ratón */
-  transform: scale(1.05); /* Efecto de escala al pasar el ratón */
+  background-color: #ff1a1a; 
+  transform: scale(1.05); 
 }
 
 .logoutButton:active {
-  transform: scale(0.95); /* Efecto de escala al hacer clic */
+  transform: scale(0.95);
+}
+
+main {
+  height: calc(100vh - 50px); 
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
 }
