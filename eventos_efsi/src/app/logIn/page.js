@@ -1,7 +1,7 @@
 "use client";
 import { useContext, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { login } from '@/src/service/UserService';
+import { login as loginService } from '@/src/service/UserService';
 import styles from './logIn.module.css';
 import Navbar from '../components/Navbar/navbar';
 import Button from '../components/Button/button';
@@ -25,8 +25,15 @@ const Login = () => {
     }
 
     try {
-      const result = await login(email, password);
-      updateUser({ name: result.first_name, last_name: result.last_name, email: result.username });       
+      const result = await loginService(email, password);
+      const { token, first_name, last_name, username } = result;
+      
+      localStorage.setItem('authToken', token);
+
+      console.log(result, result.token);
+
+      updateUser({ name: first_name, last_name: last_name, email: username, token: token });  
+
       router.push('/home');
     } catch (error) {
       setError("Hubo un problema al iniciar sesión. Inténtalo de nuevo más tarde.");

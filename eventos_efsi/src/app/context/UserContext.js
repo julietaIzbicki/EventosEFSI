@@ -1,27 +1,52 @@
 "use client";
 import React, { createContext, useState, useContext, useEffect } from 'react';
+import { decode } from 'jwt-decode';
+
 const UserContext = createContext();
 
 export function UserProvider({ children }) {
-  const [user, setUser] = useState({ name: '', last_name: '', email: '', password: '' });
+  const [user, setUser] = useState({ name: '', last_name: '', email: '', token: '' });
 
   useEffect(() => {
-    const storedUser = localStorage.getItem('user');
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
+    const storedToken = localStorage.getItem('token'); 
+    if (storedToken) {
+      try {
+        const decodedToken = jwtDecode(storedToken);
+
+        if (decodedToken.exp * 1000 < Date.now()) {
+          localStorage.removeItem('token');
+          setUser(null);
+        } else {
+          setUser({
+            name: decodedToken.first_name,
+            last_name: decodedToken.last_name,
+            email: decodedToken.email,
+            token: storedToken,
+          });
+        }
+      } catch (error) {
+        console.error('Error al decodificar el token', error);
+      }
     }
   }, []);
 
   const updateUser = (updates) => {
     setUser(prevUser => {
       const newUser = { ...prevUser, ...updates };
-      localStorage.setItem('user', JSON.stringify(newUser));
+      if (newUser.token) {
+        localStorage.setItem('token', newUser.token);
+      }
       return newUser;
     });
   };
 
+  const clearUser = () => {
+    setUser({ name: '', last_name: '', email: '', token: '' });
+    localStorage.removeItem('token');
+  };
+
   return (
-    <UserContext.Provider value={{ user, updateUser }}>
+    <UserContext.Provider value={{ user, updateUser, clearUser }}>
       {children}
     </UserContext.Provider>
   );
@@ -32,8 +57,6 @@ export function useUser() {
   if (!context) {
     throw new Error('useUser must be used within a UserProvider');
   }
-  if (!context.user.token) {    
-    return { user: null };
-  }
+
   return context;
 }

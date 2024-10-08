@@ -1,42 +1,41 @@
 "use client";
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useEffect } from 'react';
 import styles from './userInfo.module.css'; 
+import Navbar from '../components/Navbar/navbar';
+import { useUser } from '../context/UserContext';
+import { useRouter } from 'next/navigation';
 
 const UserInfo = () => {
-  const [user, setUser] = useState(null);
-  const [error, setError] = useState(null);
+  const { user, token, clearUser } = useUser(); 
+  const router = useRouter();
 
   useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const storedUser = JSON.parse(localStorage.getItem('user'));
-        if (!storedUser) {
-          throw new Error('No hay usuario autenticado');
-        }
-        const response = await axios.get(`http://yuke.ddns.net:3103/api/dai/user/${storedUser.id}`);
-        setUser(response.data);
-      } catch (err) {
-        setError(err.message);
-      }
-    };
+    if (!token) {
+    console.log(token)
+      router.push('/logIn');
+      return;
+    }
+  }, [token, router]);
 
-    fetchUserData();
-  }, []);
-
-  if (error) {
-    return <div className={styles.error}>{error}</div>;
-  }
-
-  if (!user) {
-    return <div>Cargando...</div>;
+  if (!user || !token) {
+    return (
+      <div>
+        <Navbar />
+        <div className={styles.container}>
+          <p>Cargando información del usuario...</p>
+        </div>
+      </div>
+    );
   }
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>Información del Usuario</h1>
-      <p><strong>Nombre:</strong> {user.first_name} {user.last_name}</p>
-      <p><strong>Email:</strong> {user.username}</p>
+    <div>
+      <Navbar />
+      <div className={styles.container}>
+        <h1>Información del Usuario</h1>
+        <p><strong>Nombre:</strong> {user.name} {user.last_name}</p>
+        <p><strong>Email:</strong> {user.email}</p>
+      </div>
     </div>
   );
 };
