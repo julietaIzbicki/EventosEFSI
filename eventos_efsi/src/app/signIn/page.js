@@ -22,14 +22,8 @@ export default function SignIn() {
     event.preventDefault();
     try {
       const response = await register(nombre, apellido, username, password);
-      if (response.success) {
-        const token = response.token;
-        localStorage.setItem('token', token);
-        updateUser({ name: nombre, last_name: apellido, email: username, password });
-        router.push('/home');
-      } else {
-        setError("Error al registrar usuario. Inténtalo de nuevo más tarde.");
-      }
+      updateUser({ name: nombre, last_name: apellido, email: username }); 
+      router.push('/home');
     } catch (error) {
       setError(error.message || "Error al registrar usuario. Inténtalo de nuevo más tarde.");
       console.log(error); 

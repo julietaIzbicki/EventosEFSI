@@ -1,5 +1,5 @@
 "use client";
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { login } from '@/src/service/UserService';
 import styles from './logIn.module.css';
@@ -26,14 +26,8 @@ const Login = () => {
 
     try {
       const result = await login(email, password);
-      if (result.success) {
-        const token = result.token;
-        localStorage.setItem('token', token);
-        updateUser({ name: email, email });
-        router.push('/home');
-      } else {
-        setError("Usuario o contraseña incorrecta, vuelve a ingresar los datos.");
-      }
+      updateUser({ name: result.first_name, last_name: result.last_name, email: result.username });       
+      router.push('/home');
     } catch (error) {
       setError("Hubo un problema al iniciar sesión. Inténtalo de nuevo más tarde.");
       console.error(error);

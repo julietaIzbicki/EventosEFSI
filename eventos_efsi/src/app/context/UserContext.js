@@ -32,7 +32,7 @@ export function useUser() {
   if (!context) {
     throw new Error('useUser must be used within a UserProvider');
   }
-  if (!context.user.email) {
+  if (!context.user.token) {    
     return { user: null };
   }
   return context;

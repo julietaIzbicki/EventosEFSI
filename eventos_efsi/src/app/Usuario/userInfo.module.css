@@ -1,0 +1,20 @@
+/* userInfo.module.css */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f4f6f9;
+    padding: 20px;
+  }
+  
+  .title {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+  }
+  
+  .error {
+    color: red;
+    font-size: 1.125rem;
+  }  

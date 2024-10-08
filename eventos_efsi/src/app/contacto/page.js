@@ -13,6 +13,5 @@ export default function Contact() {
         </main>
       </div>
   </>
-
   );
 }

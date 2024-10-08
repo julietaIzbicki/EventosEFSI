@@ -9,15 +9,13 @@ const userApi = axios.create({
 
 export const login = async (email, password) => {
   try {
-    const storedUser = localStorage.getItem('user');
-    if (storedUser) {
-      throw new Error('Ya estás autenticado');
-    }
     const response = await userApi.post('/login', {
       username: email,
       password: password,
     });
-    return response.data;
+
+    localStorage.setItem('user', JSON.stringify(response.data));
+    return response.data; 
   } catch (error) {
     console.error('Error fetching data:', error);
     throw error;
@@ -39,7 +37,9 @@ export const register = async (nombre, apellido, username, password) => {
       username: username,
       password: password,
     });
-    return response.data;
+
+    localStorage.setItem('user', JSON.stringify(response.data)); 
+    return response.data; 
   } catch (error) {
     if (error.response) {
       console.error('Error de registro:', error.response.data);
