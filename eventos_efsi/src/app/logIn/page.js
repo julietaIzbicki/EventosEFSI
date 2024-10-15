@@ -18,22 +18,22 @@ const Login = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+  
     if (!email || !password) {
       setError("Por favor, completa todos los campos.");
       return;
     }
-
+  
     try {
       const result = await loginService(email, password);
       const { token, first_name, last_name, username } = result;
-      
-      localStorage.setItem('authToken', token);
-
+  
+      localStorage.setItem('token', token); 
+  
       console.log(result, result.token);
-
-      updateUser({ name: first_name, last_name: last_name, email: username, token: token });  
-
+  
+      updateUser({ name: first_name, last_name: last_name, email: username, token: token });
+  
       router.push('/home');
     } catch (error) {
       setError("Hubo un problema al iniciar sesión. Inténtalo de nuevo más tarde.");

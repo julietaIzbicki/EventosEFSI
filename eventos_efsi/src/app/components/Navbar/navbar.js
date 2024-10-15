@@ -3,11 +3,12 @@
 import Link from 'next/link';
 import styles from './nav.module.css'; 
 import logo from "../../../img/logo.jpg"
+import { useUser } from '../../context/UserContext';
+import { useRouter } from 'next/navigation';
+
 const Navbar = () => {
-  const handleLogout = () => {
-    localStorage.removeItem('user');
-    window.location.href = '/'; 
-  };
+  const { user, clearUser } = useUser();
+  const router = useRouter();
 
   return (
     <div className={styles.container}>
@@ -20,11 +21,19 @@ const Navbar = () => {
           <ul className={styles.navList}> 
             <li className={styles.navItem}><Link href="/">Home</Link></li>
             <li className={styles.navItem}><Link href="/contacto">Contacto</Link></li>
-            <li className={styles.navItem}><Link href="/usuario">Usuario</Link></li>
+            {user?.name != "" && <li className={styles.navItem}><Link href="/usuario">Usuario</Link></li>}
           </ul>
         </nav>
         <div className={styles.userInfo}>
-          <button className={styles.logoutButton} onClick={handleLogout}>Cerrar Sesión</button>
+          {user?.name && (
+            <button 
+              className={styles.logoutButton} 
+              onClick={() => {
+                clearUser(); 
+                router.push('/login'); 
+              }}> Cerrar Sesión
+            </button>
+            )}              
         </div>
       </header>
     </div>

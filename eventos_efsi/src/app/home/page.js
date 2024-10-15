@@ -10,7 +10,7 @@ export default function Events() {
   const [events, setEvents] = useState([]);
   const router = useRouter();
 
-  useEffect(() => {
+  useEffect(() => {    
     const fetchEvents = async () => {
       try {
         const eventsResponse = await event();
@@ -26,7 +26,7 @@ export default function Events() {
     };
 
     fetchEvents();
-  }, []);
+  }, [router]); 
 
   const handleEventClick = (id) => {
     router.push(`/detalleEvento/${id}`);
