@@ -1,6 +1,6 @@
 "use client";
 import React, { createContext, useState, useContext, useEffect } from 'react';
-import * as jwtDecode from 'jwt-decode';
+import {jwtDecode } from 'jwt-decode';
 
 const UserContext = createContext();
 
@@ -11,6 +11,7 @@ export function UserProvider({ children }) {
     const storedToken = localStorage.getItem('token'); 
     if (storedToken) {
       try {
+        console.log('token',storedToken)
         const decodedToken = jwtDecode(storedToken);
 
         if (decodedToken.exp * 1000 < Date.now()) {

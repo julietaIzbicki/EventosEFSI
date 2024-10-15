@@ -30,7 +30,7 @@ const Navbar = () => {
               className={styles.logoutButton} 
               onClick={() => {
                 clearUser(); 
-                router.push('/login'); 
+                router.push('/logIn'); 
               }}> Cerrar Sesión
             </button>
             )}              
