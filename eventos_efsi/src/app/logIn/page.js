@@ -8,6 +8,7 @@ import Button from '../components/Button/button';
 import Input from '../components/Input/input';
 import InputPass from '../components/Input/inputPass';
 import { useUser } from '../context/UserContext';
+import { TokenContext } from '../context/tokenContext';
 
 const Login = () => {
   const { updateUser } = useUser();
@@ -15,6 +16,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
   const router = useRouter();
+  const{ saveToken } = useContext(TokenContext);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -27,7 +29,7 @@ const Login = () => {
     try {
       const result = await loginService(email, password);
       const { token, first_name, last_name, username } = result;
-  
+      saveToken(result.token);
       localStorage.setItem('token', token); 
   
       console.log(result, result.token);
