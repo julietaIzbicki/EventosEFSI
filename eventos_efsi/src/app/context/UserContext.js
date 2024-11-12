@@ -21,7 +21,7 @@ export function UserProvider({ children }) {
           setUser({
             name: decodedToken.first_name,
             last_name: decodedToken.last_name,
-            email: decodedToken.email,
+            email: decodedToken.username,
             token: storedToken,
           });
         }

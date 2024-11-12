@@ -1,20 +1,32 @@
-/* userInfo.module.css */
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: #f4f6f9;
-    padding: 20px;
-  }
-  
-  .title {
-    font-size: 2rem;
-    color: #2c3e50;
-    margin-bottom: 20px;
-  }
-  
-  .error {
-    color: red;
-    font-size: 1.125rem;
-  }  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f4f6f9;
+  padding: 20px;
+  flex-direction: column; 
+}
+
+.title {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  text-align: center; 
+}
+
+.userInfoContainer {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 100%;
+  max-width: 600px; 
+}
+
+.userInfo {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 20px;
+}

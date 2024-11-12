@@ -21,7 +21,7 @@ const Navbar = () => {
           <ul className={styles.navList}> 
             <li className={styles.navItem}><Link href="/">Home</Link></li>
             <li className={styles.navItem}><Link href="/contacto">Contacto</Link></li>
-            {user?.name != "" && <li className={styles.navItem}><Link href="/usuario">Usuario</Link></li>}
+            {user?.name != "" && <li className={styles.navItem}><Link href="/Usuario">Usuario</Link></li>}
           </ul>
         </nav>
         <div className={styles.userInfo}>

@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server';
+import { getCookie } from "cookies-next";
 
 export function middleware(request) {
-  const token = request.headers.get('authorization')?.replace('Bearer ', ''); 
+  const token = getCookie("token", {req: request})
 
   if (request.nextUrl.pathname.startsWith('/home')) {
     if (!token) {

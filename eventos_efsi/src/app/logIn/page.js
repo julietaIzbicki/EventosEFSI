@@ -7,6 +7,7 @@ import Navbar from '../components/Navbar/navbar';
 import Button from '../components/Button/button';
 import Input from '../components/Input/input';
 import InputPass from '../components/Input/inputPass';
+import Cookies from "js-cookie";
 import { useUser } from '../context/UserContext';
 import { TokenContext } from '../context/tokenContext';
 
@@ -31,6 +32,7 @@ const Login = () => {
       const { token, first_name, last_name, username } = result;
       saveToken(result.token);
       localStorage.setItem('token', token); 
+      Cookies.set("token", token)
   
       console.log(result, result.token);
   
