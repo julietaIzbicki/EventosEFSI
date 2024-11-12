@@ -7,6 +7,7 @@ const userApi = axios.create({
   },
 });
 
+/*
 const setAuthorizationHeader = () => {
   if (typeof window !== 'undefined') {
     const token = localStorage.getItem('authToken'); 
@@ -24,6 +25,7 @@ userApi.interceptors.request.use((config) => {
 }, (error) => {
   return Promise.reject(error);
 });
+*/
 
 export const event = async () => {
   try {

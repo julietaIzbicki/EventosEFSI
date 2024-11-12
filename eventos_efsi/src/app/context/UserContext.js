@@ -1,6 +1,7 @@
 "use client";
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import jwtDecode from 'jwt-decode';
+import Cookies from 'js-cookie';
 
 const UserContext = createContext();
 
@@ -44,6 +45,7 @@ export function UserProvider({ children }) {
   const clearUser = () => {
     setUser({ name: '', last_name: '', email: '', token: '' });
     localStorage.removeItem('token');
+    Cookies.remove('token');
   };
 
   return (

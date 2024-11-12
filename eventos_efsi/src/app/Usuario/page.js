@@ -8,9 +8,6 @@ import { useRouter } from 'next/navigation';
 const UserInfo = () => {
   const { user, token, clearUser } = useUser(); 
   const router = useRouter();
-
-  console.log(user);
-
   return (
     <div>
       <Navbar />

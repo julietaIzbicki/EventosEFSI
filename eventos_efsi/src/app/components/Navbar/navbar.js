@@ -22,10 +22,11 @@ const Navbar = () => {
             <li className={styles.navItem}><Link href="/">Home</Link></li>
             <li className={styles.navItem}><Link href="/contacto">Contacto</Link></li>
             {user?.name != "" && <li className={styles.navItem}><Link href="/Usuario">Usuario</Link></li>}
+            {user?.name != "" && <li className={styles.navItem}><Link href="/home">Eventos</Link></li>}
           </ul>
         </nav>
         <div className={styles.userInfo}>
-          {user?.name && (
+          {user?.name != "" && (
             <button 
               className={styles.logoutButton} 
               onClick={() => {

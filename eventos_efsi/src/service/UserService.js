@@ -13,8 +13,7 @@ export const login = async (email, password) => {
       username: email,
       password: password,
     });
-
-    localStorage.setItem('user', JSON.stringify(response.data));
+    
     return response.data; 
   } catch (error) {
     console.error('Error fetching data:', error);
@@ -38,7 +37,6 @@ export const register = async (nombre, apellido, username, password) => {
       password: password,
     });
 
-    localStorage.setItem('user', JSON.stringify(response.data)); 
     return response.data; 
   } catch (error) {
     if (error.response) {
